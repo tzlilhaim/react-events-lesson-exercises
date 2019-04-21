@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 
 class SpotCheck1 extends Component {
-  constructor() {
-    super()
-    this.state = {
+//add another method called logHover, 
+//which prints "I was hovered!" when the mouse enters the button
+    logClick() {
+        console.log("I was clicked!")
     }
-  }
-  
-  render() {
-    const state = this.state
-    return (
-      <div >
-
-      </div>
-    );
-  }
+    render() {
+        return (
+            <button onClick={this.logClick}>Click me</button>
+        );
+    }
 }
 
-export default SpotCheck1;
+export default App;

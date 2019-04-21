@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 
 class Task extends Component {
-  constructor() {
-    super()
-    this.state = {
-    }
+  complete = () => {
+
   }
-  
+
   render() {
-    const state = this.state
     return (
-      <div >
+      <div>
 
       </div>
-    );
+    )
   }
 }
 
