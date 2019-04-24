@@ -19,27 +19,33 @@ class App extends Component {
     return (
       <div >
         <div class='ex-space'>
+          <h4 className='ex-title'>Spot-check 1</h4 >
           <SpotCheck1 />
         </div>
         <div class='ex-space'>
+          <h4 className='ex-title'>Spot-check 2</h4 >
           <SpotCheck2 />
         </div>
         <div class='ex-space'>
+          <h4 className='ex-title'>Spot-check 3</h4 >
           <SpotCheck3 />
         </div>
         <div class='ex-space'>
+          <h4 className='ex-title'>Spot-check 4</h4 >
           <SpotCheck4 />
         </div>
         <div class='ex-space'>
+          <h4 className='ex-title'>Spot-check 5</h4 >
           <SpotCheck5 />
         </div>
         <div class='ex-space'>
-        <Exercise1 />
+          <h4 className='ex-title'>Exercise 1</h4 >
+          <Exercise1 />
         </div>
 
         <div class='ex-space'>
-
-        <Exercise2 />
+          <h4 className='ex-title'>Exercises 2-7</h4 >
+          <Exercise2 />
         </div>
 
       </div>
