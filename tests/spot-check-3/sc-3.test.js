@@ -6,7 +6,7 @@ import { mount, configure} from 'enzyme';
 
 configure({ adapter: new Adapter() });
 
-describe("Spotcheck 3", () => {
+describe("spotcheck3", () => {
     it('Application should render without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<SpotCheck3 />, div);

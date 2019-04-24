@@ -10,7 +10,7 @@ let outputData = ""
 const storeLog = inputs => (outputData += inputs)
 console["log"] = jest.fn(storeLog)
 
-describe("Spotcheck 1", () => {
+describe("spotcheck1", () => {
     it('Application should render without crashing', () => {
       const div = document.createElement('div');
       ReactDOM.render(<SpotCheck1 />, div);

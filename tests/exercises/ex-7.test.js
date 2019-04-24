@@ -8,7 +8,7 @@ import Conversation from '../../src/components/Exercise2/Conversation';
 
 configure({ adapter: new Adapter() });
 
-describe("Exercise 7", () => {
+describe("exercise7", () => {
     it('Application should render without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<Exercise2 />, div);

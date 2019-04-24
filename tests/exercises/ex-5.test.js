@@ -7,7 +7,7 @@ import { mount, configure} from 'enzyme';
 
 configure({ adapter: new Adapter() });
 
-describe("Exercise 5", () => {
+describe("exercise5", () => {
     it('Application should render without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(<Exercise2 />, div);
