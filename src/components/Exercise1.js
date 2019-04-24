@@ -21,7 +21,8 @@ class Exercise1 extends Component {
   render() {
     return (
       <div >
-          {/* render two buttons, and the image at index currentImg */}
+          {/* render two buttons with the classes "back" and "forward",
+           and the image at index currentImg, in an img tag */}
       </div>
     );
   }

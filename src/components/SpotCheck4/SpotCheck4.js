@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class SpotCheck3 extends Component {
-    //Modify the likeQuote method to receive a quote's ID, 
-    //and update the state accordingly
-    // Make sure we're passing down the right props to each Quote
-    // A quote object and the likeQuote method
 
     constructor() {
         super()
@@ -19,8 +15,14 @@ class SpotCheck3 extends Component {
 
     likeQuote = quoteId => {
 
+    //Modify the likeQuote method to receive a quote's ID, 
+    // and update the state accordingly
+
     }
     
+    // Make sure we're passing down the props "quote" and "likeQuote" to each Quote
+    // A quote object and the likeQuote method
+
     render() {
         return (
             <div>
