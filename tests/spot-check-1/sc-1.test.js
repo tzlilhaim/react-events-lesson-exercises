@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SpotCheck1 from '../../src/components/SpotCheck1';
+import SpotCheck1 from '../../src/components/SpotCheck1/SpotCheck1';
 import Adapter from 'enzyme-adapter-react-16';
 import { mount, configure} from 'enzyme';
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class SpotCheck1 extends Component {
-//add another method called logHover, 
-//which prints "I was hovered!" when the *mouse enters* the button
+    //add another method called logHover, 
+    //which prints "I was hovered!" when the *mouse enters* the button
     logClick() {
         console.log("I was clicked!")
     }
@@ -13,4 +13,4 @@ class SpotCheck1 extends Component {
     }
 }
 
-export default App;
+export default SpotCheck1;

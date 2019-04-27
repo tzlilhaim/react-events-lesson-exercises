@@ -15,11 +15,11 @@ class SpotCheck3 extends Component {
 
     likeQuote = quoteId => {
 
-    //Modify the likeQuote method to receive a quote's ID, 
-    // and update the state accordingly
+        //Modify the likeQuote method to receive a quote's ID, 
+        // and update the state accordingly
 
     }
-    
+
     // Make sure we're passing down the props "quote" and "likeQuote" to each Quote
     // A quote object and the likeQuote method
 
@@ -27,11 +27,13 @@ class SpotCheck3 extends Component {
         return (
             <div>
                 {this.state.quotes.map(q => {
-                    return <div className="quotes">
-                        <sup>{q.likes}</sup>
-                        <span onClick={this.likeQuote}>+</span>
-                        <span>{q.text}</span>
-                    </div>
+                    return (
+                        <div key={q.id} className="quotes">
+                            <sup>{q.likes}</sup>
+                            <span onClick={this.likeQuote}>+</span>
+                            <span>{q.text}</span>
+                        </div>
+                    )
                 })}
             </div>
         )

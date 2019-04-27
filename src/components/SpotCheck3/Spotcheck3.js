@@ -18,11 +18,13 @@ class SpotCheck3 extends Component {
         return (
             <div>
                 {this.state.quotes.map(q => {
-                    return <div className="quotes">
-                        <sup>{q.likes}</sup>
-                        <span onClick={this.likeQuote}>+</span>
-                        <span>{q.text}</span>
-                    </div>
+                    return (
+                        <div key={q.id} className="quotes">
+                            <sup>{q.likes}</sup>
+                            <span onClick={this.likeQuote}>+</span>
+                            <span>{q.text}</span>
+                        </div>
+                    )
                 })}
             </div>
         )
