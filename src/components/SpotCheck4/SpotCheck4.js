@@ -15,13 +15,12 @@ class SpotCheck3 extends Component {
 
     likeQuote = quoteId => {
 
-        //Modify the likeQuote method to receive a quote's ID, 
-        // and update the state accordingly
+        //Update the state accordingly based on quoteId
 
     }
 
-    // Make sure we're passing down the props "quote" and "likeQuote" to each Quote
-    // A quote object and the likeQuote method
+    //Load instances of `Quote` instead of rendering a `div`, and make sure to pass the correct props: 
+    //a quote object and the `likeQuote` method
 
     render() {
         return (
