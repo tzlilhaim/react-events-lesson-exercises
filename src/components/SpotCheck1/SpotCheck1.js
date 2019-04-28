@@ -8,7 +8,7 @@ class SpotCheck1 extends Component {
     }
     render() {
         return (
-            <button onClick={this.logClick}>Click me</button>
+            <button id="logger" onClick={this.logClick}>Click me</button>
         );
     }
 }
