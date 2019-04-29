@@ -13,26 +13,6 @@ describe("exercise6", () => {
         ReactDOM.render(<Exercise2 />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-    it('Your Conversation component should recieve a "convo" array from props', () => {
-        const wrapper = mount(<Exercise2/>)
-        wrapper.setState({displayConversation: "Dad"}, () => {
-            let convoProps = wrapper.find(Conversation).props()
-            expect(wrapper.find(Conversation), "You should render a Conversation component when displayConversation is not null")
-                .toHaveLength(1)
-            expect(typeof convoProps.convo, "You should send an array 'convo' prop to your Conversation component")
-                .toBe('object')
-            expect(convoProps.convo, `The conversation rendered should be the one of the person clicked on. When clicking on 'Dad' we expected a 4 line conversation, you gave a ${convoProps.convo.length} line conversation.`)
-                .toHaveLength(4)
-        })
-    });
-    it('Your Conversation component should recieve a "sender" string from props', () => {
-        const wrapper = mount(<Exercise2/>)
-        wrapper.setState({displayConversation: "Dad"}, () => {
-            let convoProps = wrapper.find(Conversation).props()
-            expect(convoProps.sender, "You should send a string 'sender' prop to your Conversation component")
-                .toBe('Dad')
-        })
-    })
     it('Your Conversation component should render a div for each message', () => {
         const wrapper = mount(<Exercise2/>)
         wrapper.setState({displayConversation: "Dad"}, () => {
@@ -44,18 +24,30 @@ describe("exercise6", () => {
     it('You should print Me when the sender is "self" and the persons name when the sender is "other"', () => {
         const wrapper = mount(<Exercise2/>)
         wrapper.setState({displayConversation: "Dad"}, () => {
-            let dadConvo = wrapper.state().conversations.find(c => c.with==="Dad").convo
-            let convoDivs = wrapper.find(Conversation).children().find('.sender')
-            dadConvo.forEach((c, i) => {
-                let convoSender = convoDivs.at(i).text()
-                if (c.sender === "other") {
-                    expect(convoSender, `When the message sender is 'other', you should display the name of the person the conversation is with. For the Dad's conversation, you prinited ${convoSender}, we expected "Dad"`)
-                        .toBe("Dad")
-                } else {
-                    expect(convoSender, `When the message sender is 'self', you should display 'Me'. For the Dad's conversation, you prinited ${convoSender}, we expected "Me"`)
-                        .toBe("Me")
-                }
-            })
+            expect(wrapper.find(Conversation).html(), 
+                'When the displayConversation property is set to Dad, you should see messages from "Dad" when the "sender" is "other"')
+                .toContain("Dad")
+            expect(wrapper.find(Conversation).html(),
+                'You should always see messages sent from "Me" when the "sender" of the message is self')
+                .toContain("Me")
+            let dadMessageIndex = wrapper.find(Conversation).html().indexOf("Dad")
+            let meMessageIndex = wrapper.find(Conversation).html().indexOf("Me")
+            expect(dadMessageIndex,
+                "When the displayConversation is set to 'Dad', the first message should be from 'Dad'")
+                .toBeLessThan(meMessageIndex)
+        })
+        wrapper.setState({displayConversation: "Laura"}, () => {
+            expect(wrapper.find(Conversation).html(), 
+                'When the displayConversation property is set to Laura, you should see messages from "Laura" when the "sender" is "other"')
+                .toContain("Laura")
+            expect(wrapper.find(Conversation).html(),
+                'You should always see messages sent from "Me" when the "sender" of the message is self')
+                .toContain("Me")
+            let dadMessageIndex = wrapper.find(Conversation).html().indexOf("Laura")
+            let meMessageIndex = wrapper.find(Conversation).html().indexOf("Me")
+            expect(dadMessageIndex,
+                "When the displayConversation is set to 'Laura', the first message should be from 'Me'")
+                .toBeGreaterThan(meMessageIndex)
         })
     })
 })
