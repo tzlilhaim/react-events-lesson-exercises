@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Exercise1 from '../../src/components/Exercise1';
+import Exercise1 from '../../src/components/Exercise1/Exercise1';
 import Adapter from 'enzyme-adapter-react-16';
 import { mount, configure} from 'enzyme';
 
