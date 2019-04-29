@@ -20,7 +20,7 @@ describe("exercise7", () => {
             let conversation = wrapper.find(Conversation)
             expect(conversation, 'You should have a conversation component when the displayConversation state property is not null')
                 .toBeDefined()
-            expect(conversation.find('.back'), 'You should render as single back button, with the class "back", on your Conversation component')
+            expect(conversation.find('button'), 'You should render a single button in your Conversation component')
                 .toHaveLength(1)
 
         })
@@ -28,8 +28,8 @@ describe("exercise7", () => {
     it('Clicking the back button should reset the state of displayConverstion to null', () => {
         const wrapper = mount(<Exercise2/>)
         wrapper.setState({displayConversation: "Dad"}, async () => {
-            let backButton = wrapper.find(".back")
-            await backButton.simulate("click")
+            let button = wrapper.find("button")
+            await button.simulate("click")
             let displayConversation = wrapper.state().displayConversation
             expect(displayConversation, `Clicking the back button should set the state of the displayConversation property to null. After clicking the back button, your displayConversation property is ${displayConversation}`)
                 .toBeNull()
