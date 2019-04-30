@@ -16,6 +16,7 @@ describe("spotcheck1", () => {
     ReactDOM.render(<SpotCheck1 />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+
   it('You should define a logHover method on your component', () => {
     let wrapper = mount(<SpotCheck1 />)
     expect(typeof wrapper.instance().logHover, 'You should define a logHover method on your component')
@@ -31,14 +32,9 @@ describe("spotcheck1", () => {
   it('your logHover method should console.log "I was hovered!" when the mouse enters the button', () => {
     const wrapper = mount(<SpotCheck1 />)
     wrapper.find('#logger').simulate("mouseenter")
-    const expectedResult = "I was hovered!"
-    expect(outputData === expectedResult, `your logHover method should console.log ${expectedResult} when the mouse enters the button. You logged ${outputData}`)
-      .toBe(true)
+    const expectedResult = "hovered"
+    expect(outputData, `your logHover method's console.log should contain the word ${expectedResult} when the mouse enters the button. You logged ${outputData}`)
+      .toContain(expectedResult)
   })
 })
-
-
-
-
-
 
