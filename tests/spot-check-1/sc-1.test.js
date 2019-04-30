@@ -17,8 +17,9 @@ describe("spotcheck1", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
   it('You should define a logHover method on your component', () => {
-    expect(SpotCheck1.prototype.logHover, 'You should define a logHover method on your component')
-      .toBeDefined()
+    let wrapper = mount(<SpotCheck1 />)
+    expect(typeof wrapper.instance().logHover, 'You should define a logHover method on your component')
+      .toBe('function')
   });
 
   it('You should have a button with an `id` of `logger`', () => {
