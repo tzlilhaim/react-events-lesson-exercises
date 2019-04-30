@@ -19,14 +19,9 @@ describe("spotcheck3", () => {
         let initialState = wrapper.state().quotes[0].likes
         wrapper.instance().likeQuote()
         let updatedState = wrapper.state().quotes[0].likes
-        expect(updatedState, `The likeQuote method should add 1 tp the likes of the first quote in your state's quotes property. 
+        expect(updatedState, `The likeQuote method should add 1 to the likes of the first quote in your state's quotes property. 
                             After clicking once, the likes should be ${initialState+1} likes, you had ${updatedState} likes`)
             .toBe(initialState+1)
-        let renderedState = parseInt(wrapper.find('sup').first().text())
-        expect(renderedState, 
-          `You should change the state with the setState function so the app automatically renders when changes are made.
-            Expected the first quote to render ${updatedState} likes, instead rendered ${renderedState} likes`)
-          .toBe(updatedState)
       });
     it('Your likeQuote method should not affect anything other than the likes of the first quote', () => {
         const wrapper = mount(<SpotCheck3/>)
@@ -36,11 +31,7 @@ describe("spotcheck3", () => {
         updatedState.forEach((p,i) => {
             expect(updatedState[i].text, 'All quote text should be unchanged')
                 .toBe(initialState[i].text)
-        })
-        for(let i=1; i<=2; i++) {
-            expect(updatedState[i].likes, 'the number of likes of the other two quotes should be unchanged')
-                .toBe(initialState[i].likes)
-        }       
+        })     
     })
 })
 
