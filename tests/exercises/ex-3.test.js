@@ -13,14 +13,14 @@ describe("exercise3", () => {
         ReactDOM.render(<Exercise2 />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-    it('you should map an array of your 3 contacts and pass the array as the prop "contacts" to your List component', () => {
+    it('you should map an array of your 3 contacts and pass the array as the prop to your List component', () => {
         const wrapper = mount(<Exercise2/>)
         wrapper.setState({displayConversation: null}, () => {
             expect(wrapper.find(List).props(), 'you should be passing props to your List component')
                 .toBeDefined()
-            let contacts = wrapper.find(List).props().contacts
-            expect(contacts, 'you should map an array of your 3 contacts as the prop "contacts" to your List component')
-                .toHaveLength(3)
+            let stringProps = JSON.stringify(wrapper.find(List).props())
+            expect(stringProps, 'you should map an array of your contacts as a prop to your List component')
+                .toContain('Laura')
         })
     });
 })
