@@ -30,23 +30,23 @@ describe("spotcheck4", () => {
         let quoteProps = wrapper.find(Quote).first().props()
         expect(quoteProps, "Each quote component should have props")
             .toBeDefined()
-        expect(typeof quoteProps.quote, "You should pass a prop 'quote' with the quote object down to your Quote component")
-            .toBe("object")
-        expect(typeof quoteProps.likeQuote, "You should pass a prop 'likeQuote' with the likeQuote method down to your Quote component")
-            .toBe("function")
+        expect(quoteProps, "You should pass a prop with the quote object down to your Quote component")
+            .toContain("butter")
+        expect(quoteProps, "You should pass a prop with the likeQuote method down to your Quote component")
+            .toContain("likeQuote")
     })
     it("Each quote should have a span with the class 'add' which, when clicked, invokes the likeQuote method with the quote's ID", () => {
         const wrapper = mount(<SpotCheck4/>)
         expect(wrapper.find(Quote), `You should be rendering each separate quote using the Quote component. 
-                                    We expected 3 quotes, you prinited ${wrapper.find(Quote).length}`)
+                                    We expected 3 quotes, you printed ${wrapper.find(Quote).length}`)
             .toHaveLength(3)
         expect(wrapper.find(Quote).first().props(), `Each Quote component should be passed props`)
             .toBeDefined()
         let quoteLength = wrapper.find(Quote).length 
         for (let i =0; i<quoteLength; i++) {
-            let initialLikes = wrapper.find(Quote).at(i).props().quote.likes
+            let initialLikes = wrapper.state().quote[i].quote.likes
             wrapper.find('.add').at(i).simulate('click')
-            let actualQuote = wrapper.find(Quote).at(i).props().quote.likes
+            let actualQuote = wrapper.state().quote[i].quote.likes
             let expectedQuote = initialLikes+1
             expect(actualQuote, `Expected the first quote to have ${expectedQuote} likes, instead had ${actualQuote} likes`)
                 .toBe(expectedQuote)
