@@ -41,7 +41,7 @@ describe("spotcheck5", () => {
             { text: "Trash talk Carrie", complete: true },
             { text: "Carry boxes upstairs", complete: false }
           ]}, async () => {
-            await wrapper.find('.complete').first().simulate('click')
+            await wrapper.find('button').first().simulate('click')
             expect(wrapper.state().tasks[0].complete, 'Clicking the complete button of a task should update the state of the task from false to true')
                 .toBe(true)
             expect(wrapper.find(Task), 'Once a task is completed it should no longer be rendered')
