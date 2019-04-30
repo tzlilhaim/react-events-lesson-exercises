@@ -17,14 +17,14 @@ describe("exercise4", () => {
     it('You should map each contact into a Contact component that displays the name of the contact', () => {
         const wrapper = mount(<Exercise2/>)
         wrapper.setState({displayConversation: null}, () => {
-            expect(wrapper.find(Contact), 'you should have three contact components, mapped out from your contacts props')
-                .toHaveLength(3)
+            expect(wrapper.find(Contact).length, 'you should have contact components, mapped out from your contacts props')
+                .toBeGreaterThan(0)
             expect(wrapper.find(List).props(), 'you should be passing props to your List components')
                 .toBeDefined()
-            let contact1 = wrapper.find(List).props().contacts[0]
+            let stringProps = JSON.stringify(wrapper.find(List).props())
             let contactText1 = wrapper.find(Contact).first().text()
-            expect(contact1, `expected ${contact1} to be displayed in your first Contact component, instead you displayed ${contactText1}`)
-                .toBe(contactText1)
+            expect(stringProps, `expected the name of a contact to be displayed in one of your Contact components, instead you displayed ${contactText1}`)
+                .toContain(contactText1)
         })
     });
 })

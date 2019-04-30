@@ -21,11 +21,6 @@ describe("exercise5", () => {
     });
     it('Each Contact should update the state of displayConversation to be the name of that contact', () => {
         const wrapper = mount(<Exercise2/>)
-        let contactProps = wrapper.find(Contact).first().props()
-        expect(typeof contactProps.name, 'You should pass a string prop "name" to your Contact component')
-            .toBe("string")
-        expect(typeof contactProps.displayConvo, "You should pass a method prop 'displayConvo' to your Contact component")
-            .toBe("function")
         wrapper.setState({displayConversation: null}, async () => {
             await wrapper.find(Contact).first().simulate('click')
             expect(wrapper.state().displayConversation, 'clicking on a contact should invoke the displayConvo method')
