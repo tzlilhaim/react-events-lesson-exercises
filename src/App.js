@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SpotCheck1 from './components/SpotCheck1/SpotCheck1';
-import SpotCheck2 from './components/SpotCheck2/SpotCheck2';
+import {SpotCheck2} from './components/SpotCheck2/SpotCheck2';
 import SpotCheck3 from './components/SpotCheck3/Spotcheck3';
 import SpotCheck5 from './components/SpotCheck5/SpotCheck5';
 import Exercise1 from './components/Exercise1/Exercise1';

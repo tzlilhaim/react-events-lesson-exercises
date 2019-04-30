@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-const Home = function () {
+export const Home = function () {
   // Should return some JSX with a div that has a class "home" and the text "Welcome to our page"
 }
 
-const About = function () {
+export const About = function () {
   // Should return some JSX with a div that has a class "about" and the text "It's great here"
 }
 
-class SpotCheck2 extends Component {
+export class SpotCheck2 extends Component {
 
   // Your SpotCheck2 should render the Home Component, the About Component, and a Toggle Button
   // Either the Home or About component should be rendered when you press the toggle button
@@ -24,4 +24,4 @@ class SpotCheck2 extends Component {
   }
 }
 
-export default SpotCheck2;
+
