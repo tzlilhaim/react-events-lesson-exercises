@@ -31,6 +31,7 @@ describe("exercise7", () => {
             let button = wrapper.find("button")
             await button.simulate("click")
             let displayConversation = wrapper.state().displayConversation
+            
             expect(displayConversation, `Clicking the back button should set the state of the displayConversation property to null. After clicking the back button, your displayConversation property is ${displayConversation}`)
                 .toBeNull()
             expect(wrapper.find(List), 'Clicking the back button should rerender the List component')
