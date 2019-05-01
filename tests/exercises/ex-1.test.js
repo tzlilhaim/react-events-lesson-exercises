@@ -44,7 +44,7 @@ describe("exercise1", () => {
         expect(secondButton.props().onClick, 'each button should have an onClick function')
             .toBeDefined()
 
-        wrapper.setState({currentImg: 1}, async () => {
+        wrapper.setState({currentImg: 1}, async (done) => {
             await firstButton.simulate('click')
             await console.log(wrapper.state().currentImg)
             expect(wrapper.state().currentImg, 'Clicking the forward button should increase the states currentImg by 1')
@@ -53,6 +53,7 @@ describe("exercise1", () => {
             console.log(wrapper.state().currentImg)
             expect(wrapper.state().currentImg, 'Clicking the back button should decrease the states currentImage by 1')
                 .toBe(1)
+            done()
         })
     })
     it("The image rendered should be the image in the 'currentImg' position of the 'images' array", () => {

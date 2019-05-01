@@ -21,10 +21,11 @@ describe("exercise5", () => {
     });
     it('Each Contact should update the state of displayConversation to be the name of that contact', () => {
         const wrapper = mount(<Exercise2/>)
-        wrapper.setState({displayConversation: null}, async () => {
+        wrapper.setState({displayConversation: null}, async (done) => {
             await wrapper.find(Contact).first().simulate('click')
             expect(wrapper.state().displayConversation, 'clicking on a contact should invoke the displayConvo method')
                 .not.toBeNull()
+            done()
         })
     })
 })

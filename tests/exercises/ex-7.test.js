@@ -27,7 +27,7 @@ describe("exercise7", () => {
     })
     it('Clicking the back button should reset the state of displayConverstion to null', () => {
         const wrapper = mount(<Exercise2/>)
-        wrapper.setState({displayConversation: "Dad"}, async () => {
+        wrapper.setState({displayConversation: "Dad"}, async (done) => {
             let button = wrapper.find("button")
             await button.simulate("click")
             let displayConversation = wrapper.state().displayConversation
@@ -35,6 +35,7 @@ describe("exercise7", () => {
                 .toBeNull()
             expect(wrapper.find(List), 'Clicking the back button should rerender the List component')
                 .toHaveLength(1)
+            done()
         })
     })
 })
