@@ -1,23 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
 
 class Conversation extends Component {
-  //should recieve the prop "convo"
+  hideConversation = () => {
+    this.props.hideConvo(this.props.sender)
+  }
   render() {
     return (
-      <div >
-        {/* should render an array of messages, 
-        with each message in a separate div */}
-
-        {/* You should wrap the sender in span with the class "sender" */}
-        {/* When the sender is other you should display 
-                  the name of the sender in the span*/}
-        {/* When the sender is self, you should display "Me" in the span */}
-
-        {/* You should render a back button with the class "back" 
-            When clicked it should set the state of displayConversation to null*/}
+      <div>
+        <button className="back" onClick={this.hideConversation}>
+          {"< back"}
+        </button>
+        <p className="contact">{this.props.sender}</p>
+        {this.props.convo.map((message, index) => {
+          return (
+            <div key={`m-${index}`}>
+              <span className="sender">
+                {message.sender === "self" ? "Me" : this.props.sender}:{" "}
+              </span>
+              <span className="message">{message.text}</span>
+            </div>
+          )
+        })}
       </div>
-    );
+    )
   }
 }
 
-export default Conversation;
+export default Conversation

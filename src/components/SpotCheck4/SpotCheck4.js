@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Quote from "./Quote"
 
 class SpotCheck3 extends Component {
 
@@ -14,9 +15,10 @@ class SpotCheck3 extends Component {
     }
 
     likeQuote = quoteId => {
-
-        //Update the state accordingly based on quoteId
-
+        let allQuotes = [...this.state.quotes]
+        let likedQuote = allQuotes.find(quote=>quote.id === quoteId)
+        likedQuote.likes++
+        this.setState({quotes:allQuotes})
     }
 
     //Load instances of `Quote` instead of rendering a `div`, and make sure to pass the correct props: 
@@ -25,13 +27,9 @@ class SpotCheck3 extends Component {
     render() {
         return (
             <div>
-                {this.state.quotes.map(q => {
+                {this.state.quotes.map((q,index) => {
                     return (
-                        <div key={q.id} className="quotes">
-                            <sup>{q.likes}</sup>
-                            <span onClick={this.likeQuote}>+</span>
-                            <span>{q.text}</span>
-                        </div>
+                       <Quote key={`quote-${index}`} quote={q} likeQuote={this.likeQuote}/>
                     )
                 })}
             </div>
